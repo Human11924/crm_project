@@ -1,20 +1,25 @@
-import { useState, useEffect } from "react"
-import { useDebounce } from "../hooks/useDebounce"
+import { useState, useEffect } from "react";
+import { useDebounce } from "../hooks/useDebounce";
 
-export default function SearchInput({ onSearch }) {
-  const [value, setValue] = useState("")
-  const debouncedValue = useDebounce(value, 400)
+export default function SearchInput({ value: outerValue = "", onSearch }) {
+  const [value, setValue] = useState(outerValue);
+  const debouncedValue = useDebounce(value, 400);
 
   useEffect(() => {
-    onSearch(debouncedValue)
-  }, [debouncedValue, onSearch])
+    setValue(outerValue);
+  }, [outerValue]);
+
+  useEffect(() => {
+    onSearch(debouncedValue);
+  }, [debouncedValue, onSearch]);
 
   return (
     <input
+      className="search-input"
       type="text"
-      placeholder="Поиск..."
+      placeholder="Search users..."
       value={value}
       onChange={(e) => setValue(e.target.value)}
     />
-  )
+  );
 }

@@ -1,0 +1,250 @@
+.intro-section {
+  position: relative;
+  min-height: calc(100vh - 68px);
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background: linear-gradient(180deg, #eef2f7 0%, #e6edf5 100%);
+  border-bottom: 1px solid #dbe3ee;
+}
+
+.intro-section::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -82px;
+  width: 100%;
+  height: 82px;
+  background: linear-gradient(180deg, rgba(230, 237, 245, 0) 0%, #dfe9f5 100%);
+  pointer-events: none;
+}
+
+.intro-content {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(24px, 4vw, 64px);
+  align-items: center;
+  padding-left: clamp(44px, 8vw, 120px);
+  padding-right: clamp(16px, 4vw, 48px);
+  color: #1f2937;
+}
+
+.intro-left {
+  max-width: 820px;
+}
+
+.intro-title {
+  margin: 0;
+  font-size: clamp(58px, 10vw, 102px);
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  max-width: 640px;
+}
+
+.intro-subtitle {
+  margin: 34px 0 10px;
+  font-size: clamp(30px, 3vw, 40px);
+  font-weight: 900;
+  line-height: 1;
+  color: #334155;
+}
+
+.intro-team {
+  margin: 0;
+  color: #2563eb;
+  font-size: clamp(26px, 2.2vw, 34px);
+  font-weight: 900;
+  line-height: 1.25;
+  word-spacing: 0.22em;
+}
+
+.intro-right {
+  max-width: 520px;
+}
+
+.intro-right-title {
+  margin: 0 0 14px;
+  font-size: clamp(28px, 2.2vw, 36px);
+  font-weight: 800;
+  color: #1e293b;
+}
+
+.intro-right-text {
+  margin: 0;
+  font-size: clamp(18px, 1.2vw, 22px);
+  line-height: 1.55;
+  color: #475569;
+}
+
+.intro-right-text + .intro-right-text {
+  margin-top: 12px;
+}
+
+.users-section {
+  position: relative;
+  padding-top: 56px;
+  padding-bottom: 72px;
+  background: linear-gradient(180deg, #dfe9f5 0%, #e8eff7 34%, #f1f5f9 100%);
+}
+
+.users-section::before {
+  content: "";
+  position: absolute;
+  top: -82px;
+  left: 0;
+  width: 100%;
+  height: 82px;
+  background: linear-gradient(180deg, rgba(223, 233, 245, 0) 0%, #dfe9f5 100%);
+  pointer-events: none;
+}
+
+.users-section-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.users-page-title {
+  margin: 0 0 74px;
+  text-align: center;
+  font-size: clamp(62px, 9vw, 108px);
+  font-weight: 900;
+  line-height: 1;
+  color: #1f2937;
+}
+
+.users-page-toolbar {
+  display: flex;
+  gap: 18px;
+  align-items: stretch;
+  margin-bottom: 34px;
+}
+
+.users-search {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.users-page-toolbar .users-search .search-input {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  min-height: 48px;
+  font-size: 16px;
+}
+
+.users-page-toolbar .primary-btn {
+  min-height: 48px;
+  padding-inline: 20px;
+  font-size: 16px;
+}
+
+.users-section .users-list {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 26px;
+  margin-top: 30px;
+}
+
+@media (max-width: 1440px) {
+  .users-section .users-list {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1200px) {
+  .users-section .users-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 992px) {
+  .users-section .users-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.profile-page {
+  padding-top: 30px;
+}
+
+.back-btn {
+  display: inline-flex;
+  margin-bottom: 18px;
+}
+
+.profile-card {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #e5e7eb;
+  padding: 34px 28px;
+  border-radius: 10px;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
+}
+
+.profile-card img {
+  width: 156px;
+  height: 156px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 14px auto 20px;
+  display: block;
+  border: 4px solid #eff6ff;
+}
+
+.profile-card h1 {
+  margin: 0 0 18px;
+  font-size: 36px;
+}
+
+.profile-card p {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #374151;
+}
+
+@media (max-width: 768px) {
+  .intro-section {
+    min-height: calc(100vh - 68px);
+  }
+
+  .intro-content {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 24px 20px;
+  }
+
+  .intro-subtitle {
+    margin-top: 24px;
+  }
+
+  .users-page-title {
+    font-size: clamp(44px, 12vw, 64px);
+    margin-bottom: 44px;
+  }
+
+  .users-page-toolbar {
+    flex-direction: column;
+  }
+
+  .users-page-toolbar .primary-btn {
+    width: 100%;
+  }
+
+  .users-section .users-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .users-section .users-list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -10,7 +10,9 @@ export default function UserItem({ user, onEdit }) {
         {user.firstName} {user.lastName}
       </h3>
 
-      <p>{user.email}</p>
+      <p className="user-email" title={user.email}>
+        {user.email}
+      </p>
 
       <div className="card-buttons">
         <Link className="secondary-btn" to={`/users/${user.id}`}>

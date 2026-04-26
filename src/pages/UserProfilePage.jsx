@@ -10,27 +10,33 @@ export default function UserProfilePage() {
 
   if (!user) {
     return (
-      <div className="page">
-        <h2>Пользователь не найден</h2>
-        <Link to="/">Назад</Link>
+      <div className="page profile-page">
+        <h2>User not found</h2>
+        <Link className="secondary-btn back-btn" to="/">
+          Back
+        </Link>
       </div>
     );
   }
 
   return (
-    <div className="page">
-      <Link to="/">Назад</Link>
+    <div className="page profile-page">
+      <Link className="secondary-btn back-btn" to="/">
+        Back
+      </Link>
 
-      <h1>
-        {user.firstName} {user.lastName}
-      </h1>
+      <div className="profile-card">
+        <h1>
+          {user.firstName} {user.lastName}
+        </h1>
 
-      <img src={user.image} alt={user.firstName} />
+        <img src={user.image} alt={user.firstName} />
 
-      <p>Email: {user.email}</p>
-      <p>Age: {user.age}</p>
-      <p>Phone: {user.phone}</p>
-      <p>Gender: {user.gender}</p>
+        <p>Email: {user.email}</p>
+        <p>Age: {user.age}</p>
+        <p>Phone: {user.phone}</p>
+        <p>Gender: {user.gender}</p>
+      </div>
     </div>
   );
 }

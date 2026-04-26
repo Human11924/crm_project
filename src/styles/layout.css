@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f1f5f9;
+  color: #111827;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  background: rgba(15, 23, 42, 0.9);
+  color: #fff;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.navbar-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.navbar-link {
+  border: 1px solid #334155;
+  background: #1e293b;
+  color: #f1f5f9;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.navbar-link:hover {
+  background: #334155;
+  color: #fff;
+  border-color: #475569;
+  text-decoration: none;
+}
+
+.navbar-link-accent {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+.navbar-link-accent:hover {
+  background: #1d4ed8;
+  color: #fff;
+  border-color: #1d4ed8;
+}
+
+.page {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+.users-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.footer {
+  margin-top: 36px;
+  padding: 22px 32px;
+  background: #0f172a;
+  color: #cbd5e1;
+  border-top: 1px solid #1e293b;
+  text-align: center;
+}
+
+.footer-text {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.footer-names {
+  margin: 8px 0 0;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #60a5fa;
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 18px 16px;
+  }
+
+  .footer-names {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}

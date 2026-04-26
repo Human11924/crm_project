@@ -8,8 +8,6 @@ export const useFetch = (url, options = {}) => {
   useEffect(() => {
     if (!url) return
 
-    let isMounted = true
-
     const fetchData = async () => {
       setLoading(true)
       setError(null)
@@ -22,27 +20,16 @@ export const useFetch = (url, options = {}) => {
         }
 
         const result = await res.json()
-
-        if (isMounted) {
-          setData(result)
-        }
+        setData(result)
 
       } catch (err) {
-        if (isMounted) {
-          setError(err.message)
-        }
+        setError(err.message)
       } finally {
-        if (isMounted) {
-          setLoading(false)
-        }
+        setLoading(false)
       }
     }
 
     fetchData()
-
-    return () => {
-      isMounted = false
-    }
   }, [url])
 
   return { data, loading, error }

@@ -7,7 +7,7 @@ export default function SearchInput({ onSearch }) {
 
   useEffect(() => {
     onSearch(debouncedValue)
-  }, [debouncedValue])
+  }, [debouncedValue, onSearch])
 
   return (
     <input

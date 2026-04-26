@@ -2,10 +2,15 @@ import { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import SearchInput from "../components/SearchInput";
 import { useDebounce } from "../hooks/useDebounce";
+import Modal from "../components/Modal";
+import UserFormModal from "../components/UserFormModal";
+import UserItem from "../components/UserItem";
 
 export default function UsersListPage() {
   const { users, loading, error } = useContext(UserContext);
   const [search, setSearch] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
 
   const debouncedSearch = useDebounce(search, 400);
 
@@ -14,9 +19,28 @@ export default function UsersListPage() {
     return fullName.includes(debouncedSearch.toLowerCase());
   });
 
+  const openAddModal = () => {
+    setSelectedUser(null);
+    setIsModalOpen(true);
+  };
+
+  const openEditModal = (user) => {
+    setSelectedUser(user);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedUser(null);
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="page">
       <h1>Mini CRM</h1>
+
+      <button className="primary-btn" onClick={openAddModal}>
+        Add User
+      </button>
 
       <SearchInput value={search} onSearch={setSearch} />
 
@@ -25,17 +49,13 @@ export default function UsersListPage() {
 
       <div className="users-list">
         {filteredUsers.map((user) => (
-          <div className="user-card" key={user.id}>
-            <img src={user.image} alt={user.firstName} />
-            <h3>
-              {user.firstName} {user.lastName}
-            </h3>
-            <p>Email: {user.email}</p>
-            <p>Age: {user.age}</p>
-            <a href={`/users/${user.id}`}>Открыть профиль</a>
-          </div>
+          <UserItem key={user.id} user={user} onEdit={openEditModal} />
         ))}
       </div>
+
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <UserFormModal user={selectedUser} onClose={closeModal} />
+      </Modal>
     </div>
   );
 }
